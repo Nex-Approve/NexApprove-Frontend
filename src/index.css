@@ -43,75 +43,156 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* NexApprove Brand Color Tokens */
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
 }
 
+/* ============================================================
+   LIGHT MODE — NexApprove Design System
+   Primary Brand: Deep Blue (#1E3B8A → #3B82F6)
+   Backgrounds: White / Light gray
+   Status: Emerald (success), Rose (danger), Amber (warning)
+   ============================================================ */
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+
+  /* Core surfaces */
+  --background: #eff0ff;
+  --foreground: #0f172a;
+
+  /* Cards & popovers */
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+
+  /* Primary brand — NexApprove Blue */
+  --primary: #1e3b8a;
+  --primary-foreground: #ffffff;
+
+  /* Secondary */
+  --secondary: #f1f5f9;
+  --secondary-foreground: #1e293b;
+
+  /* Muted */
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+
+  /* Accent */
+  --accent: #f1f5f9;
+  --accent-foreground: #1e293b;
+
+  /* Destructive — Rose Red */
+  --destructive: #e11d48;
+
+  /* Borders & inputs */
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #3b82f6;
+
+  /* Charts */
+  --chart-1: #1e3b8a;
+  --chart-2: #3b82f6;
+  --chart-3: #10b981;
+  --chart-4: #f59e0b;
+  --chart-5: #ef4444;
+
+  /* Sidebar */
+  --sidebar: #f8fafc;
+  --sidebar-foreground: #0f172a;
+  --sidebar-primary: #1e3b8a;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f1f5f9;
+  --sidebar-accent-foreground: #1e293b;
+  --sidebar-border: #e2e8f0;
+  --sidebar-ring: #3b82f6;
+
+  /* NexApprove Semantic Colors */
+  --brand: #3b82f6;
+  --brand-foreground: #ffffff;
+  --success: #10b981;
+  --success-foreground: #ffffff;
+  --warning: #f59e0b;
+  --warning-foreground: #ffffff;
+  --info: #475569;
+  --info-foreground: #ffffff;
 }
 
+/* ============================================================
+   DARK MODE — NexApprove Design System
+   Surface Elevation: Slate-900 (#0a0f1a) → Slate-850 (#1E293B)
+   Primary Brand: Blue-500 (#2B5FEE / #3B82F6)
+   Status: Emerald-500, Rose-500, Amber-400
+   ============================================================ */
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  /* Core surfaces — Slate-900 */
+  --background: #0a0f1a;
+  --foreground: #f1f5f9;
+
+  /* Cards — Slate-850 */
+  --card: #1e293b;
+  --card-foreground: #f1f5f9;
+  --popover: #1e293b;
+  --popover-foreground: #f1f5f9;
+
+  /* Primary brand — NexApprove Blue (brighter for dark mode) */
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+
+  /* Secondary — Slate-800 */
+  --secondary: #334155;
+  --secondary-foreground: #f1f5f9;
+
+  /* Muted — Slate-800 */
+  --muted: #334155;
+  --muted-foreground: #94a3b8;
+
+  /* Accent */
+  --accent: #334155;
+  --accent-foreground: #f1f5f9;
+
+  /* Destructive — Rose-500 */
+  --destructive: #f43f5e;
+
+  /* Borders & inputs — Slate-700 */
+  --border: #475569;
+  --input: rgba(255, 255, 255, 0.1);
+  --ring: #3b82f6;
+
+  /* Charts */
+  --chart-1: #3b82f6;
+  --chart-2: #2b5fee;
+  --chart-3: #10b981;
+  --chart-4: #fbbf24;
+  --chart-5: #f43f5e;
+
+  /* Sidebar */
+  --sidebar: #1e293b;
+  --sidebar-foreground: #f1f5f9;
+  --sidebar-primary: #3b82f6;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #334155;
+  --sidebar-accent-foreground: #f1f5f9;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-ring: #3b82f6;
+
+  /* NexApprove Semantic Colors */
+  --brand: #2b5fee;
+  --brand-foreground: #ffffff;
+  --success: #10b981;
+  --success-foreground: #ffffff;
+  --warning: #fbbf24;
+  --warning-foreground: #1e293b;
+  --info: #94a3b8;
+  --info-foreground: #0f172a;
 }
 
 @layer base {
