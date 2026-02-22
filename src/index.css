@@ -1,6 +1,6 @@
-@import "tailwindcss";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -202,4 +202,197 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* ============================================================
+   LOGIN PAGE — Theme-aware ambient effects
+   ============================================================ */
+
+/* ── Central Radial Glow ── */
+.login-glow {
+  background: radial-gradient(
+    ellipse 60% 50% at 50% 50%,
+    rgba(59, 130, 246, 0.07) 0%,
+    rgba(30, 59, 138, 0.03) 40%,
+    transparent 70%
+  );
+}
+.dark .login-glow {
+  background: radial-gradient(
+    ellipse 60% 50% at 50% 50%,
+    rgba(59, 130, 246, 0.12) 0%,
+    rgba(30, 59, 138, 0.06) 40%,
+    transparent 70%
+  );
+}
+
+/* ── Floating Orbs ── */
+.login-orb-1 {
+  background: linear-gradient(135deg, #93bbfd, #6da0f4);
+  opacity: 0.1;
+  animation: float 8s ease-in-out infinite;
+}
+.dark .login-orb-1 {
+  background: linear-gradient(135deg, #3b82f6, #1e3b8a);
+  opacity: 0.2;
+}
+
+.login-orb-2 {
+  background: linear-gradient(225deg, #a5b4fc, #93bbfd);
+  opacity: 0.08;
+  animation: float 10s ease-in-out infinite reverse;
+}
+.dark .login-orb-2 {
+  background: linear-gradient(225deg, #6366f1, #3b82f6);
+  opacity: 0.15;
+}
+
+/* ── Grid Overlay ── */
+.login-grid {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.5;
+}
+.dark .login-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  opacity: 1;
+}
+
+/* ── Card Glass ── */
+.login-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.85) 0%, rgba(241, 245, 249, 0.95) 100%);
+  backdrop-filter: blur(40px);
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(0, 0, 0, 0.03);
+}
+.dark .login-card {
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.85) 0%, rgba(10, 15, 26, 0.95) 100%);
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+/* ── Shimmer Bar ── */
+.login-shimmer {
+  background: linear-gradient(90deg, transparent, #3b82f6, #6366f1, #3b82f6, transparent);
+}
+
+/* ── Divider Line ── */
+.login-divider-line {
+  background: linear-gradient(to right, transparent, var(--border), transparent);
+}
+
+/* ── Submit Button ── */
+.login-submit-btn {
+  background: linear-gradient(135deg, #1e3b8a 0%, #3b82f6 100%);
+  box-shadow: 0 8px 24px -4px rgba(59, 130, 246, 0.25);
+}
+.login-submit-btn:hover {
+  box-shadow: 0 12px 32px -4px rgba(59, 130, 246, 0.35);
+}
+.dark .login-submit-btn {
+  box-shadow: 0 8px 24px -4px rgba(59, 130, 246, 0.2);
+}
+.dark .login-submit-btn:hover {
+  box-shadow: 0 12px 32px -4px rgba(59, 130, 246, 0.3);
+}
+
+/* ── Float Animation (used by orbs) ── */
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(20px, -20px) scale(1.05);
+  }
+  66% {
+    transform: translate(-15px, 15px) scale(0.95);
+  }
+}
+
+/* ============================================================
+   SUPER ADMIN — Dashboard & Layout styles
+   ============================================================ */
+
+/* ── Custom scrollbar ── */
+.sa-main-content::-webkit-scrollbar {
+  width: 6px;
+}
+.sa-main-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sa-main-content::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
+}
+.sa-main-content::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
+
+/* ── Nav link hover bar ── */
+.sa-nav-active {
+  position: relative;
+}
+.sa-nav-active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 60%;
+  border-radius: 0 4px 4px 0;
+  background: var(--primary);
+}
+
+/* ── Stats card shimmer on hover ── */
+.sa-stats-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.04) 0%,
+    transparent 50%,
+    rgba(59, 130, 246, 0.02) 100%
+  );
+  transition: opacity 0.3s;
+}
+.sa-stats-card:hover::before {
+  opacity: 1;
+}
+
+/* ── Panel subtle border glow ── */
+.sa-panel {
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+.sa-panel:hover {
+  border-color: rgba(59, 130, 246, 0.15);
+  box-shadow: 0 0 24px -8px rgba(59, 130, 246, 0.06);
+}
+
+/* ── Sidebar ── */
+.sa-sidebar {
+  background: linear-gradient(180deg, var(--sidebar) 0%, var(--background) 100%);
+}
+.dark .sa-sidebar {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 1) 0%, rgba(10, 15, 26, 1) 100%);
+}
+
+/* ── Top Bar blur ── */
+.sa-topbar {
+  border-color: var(--border);
+}
+.dark .sa-topbar {
+  border-color: rgba(255, 255, 255, 0.06);
 }
