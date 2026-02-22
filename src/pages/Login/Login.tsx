@@ -54,8 +54,11 @@ const Login = () => {
         case 'ORG_ADMIN':
           navigate('/org-admin/dashboard');
           break;
+        case 'USER':
+          navigate('/user/dashboard');
+          break;
         default:
-          navigate('/dashboard');
+          navigate('/login');
           break;
       }
     } catch (err: unknown) {

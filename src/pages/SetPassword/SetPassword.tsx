@@ -109,7 +109,7 @@ const SetPassword = () => {
           navigate('/org-admin/dashboard');
           break;
         default:
-          navigate('/dashboard');
+          navigate('/user/dashboard');
           break;
       }
     } catch (err: unknown) {

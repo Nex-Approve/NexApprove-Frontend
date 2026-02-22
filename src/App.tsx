@@ -11,6 +11,9 @@ import AuditTrail from './pages/SuperAdmin/AuditTrail/AuditTrail';
 import OrgAdminLayout from './pages/OrgAdmin/components/OrgAdminLayout';
 import OrgAdminDashboard from './pages/OrgAdmin/Dashboard/OrgAdminDashboard';
 import OrgUserManagement from './pages/OrgAdmin/UserManagement/UserManagement';
+import UserLayout from './pages/User/components/UserLayout';
+import UserDashboard from './pages/User/Dashboard/UserDashboard';
+import UserSubmissions from './pages/User/Submissions/UserSubmissions';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 
 const App = () => {
@@ -45,6 +48,17 @@ const App = () => {
               <Route path="workflows" element={<PlaceholderPage title="Workflows" />} />
               <Route path="audit-logs" element={<PlaceholderPage title="Audit Logs" />} />
               <Route path="settings" element={<PlaceholderPage title="Settings" />} />
+            </Route>
+          </Route>
+
+          {/* ── User Routes ── */}
+          <Route element={<ProtectedRoute allowedRoles={['USER']} />}>
+            <Route path="/user" element={<UserLayout />}>
+              <Route index element={<Navigate to="dashboard" replace />} />
+              <Route path="dashboard" element={<UserDashboard />} />
+              <Route path="submissions" element={<UserSubmissions />} />
+              <Route path="approvals" element={<PlaceholderPage title="My Approvals" />} />
+              <Route path="profile" element={<PlaceholderPage title="Profile" />} />
             </Route>
           </Route>
 
